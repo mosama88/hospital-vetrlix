@@ -1,10 +1,10 @@
 @extends('dashboard.layouts.master')
 @section('title', 'Sections')
-@section('page-title', 'Sections')
+@section('page-title', ( trans('Dashboard/page-title.sections') ))
 @section('page-link-back')
-    <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">{{ trans('Dashboard/page-title.dashboard') }}</a></li>
 @endsection
-@section('current-page', 'Sections')
+@section('current-page', ( trans('Dashboard/page-title.sections') ))
 @section('content')
     @include('dashboard.layouts.page-link')
 

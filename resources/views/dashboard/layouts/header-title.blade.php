@@ -7,7 +7,7 @@
                 <li class="breadcrumb-item active">Welcome {{ Auth::user()->name }} To Dashboard</li>
             </ol>
         </div>
-        <div class="col-md-4">
+        {{-- <div class="col-md-4">
             <div class="float-end d-none d-md-block">
                 <div class="dropdown">
                     <button class="btn btn-primary  dropdown-toggle" type="button"
@@ -23,6 +23,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>

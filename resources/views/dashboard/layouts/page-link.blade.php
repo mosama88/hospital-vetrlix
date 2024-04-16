@@ -4,11 +4,11 @@
             <h6 class="page-title">@yield('page-title')</h6>
             <ol class="breadcrumb m-0">
                 @yield('page-link-back')
-                
+
                 <li class="breadcrumb-item active" aria-current="page">@yield('current-page')</li>
             </ol>
         </div>
-        <div class="col-md-4">
+        {{-- <div class="col-md-4">
             <div class="float-end d-none d-md-block">
                 <div class="dropdown">
                     <button class="btn btn-primary  dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -24,6 +24,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>

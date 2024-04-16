@@ -13,7 +13,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
-|
+|   $2y$10$2YUyPz/1nmGGZTfteXWCteClA6R7bh45aQalwBGFctG0jbfjNmjdC
 */
 
 
@@ -22,9 +22,9 @@ Route::group(
         'prefix' => LaravelLocalization::setLocale(),
         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function()
-    { 
-        
-        
+    {
+
+
         ##################################### Dashboard User #################################
         Route::get('/dashboard/user', function () {
             return view('dashboard.user.dashboard');
@@ -40,9 +40,9 @@ Route::group(
             Route::resource('/sections', SectionController::class);
 
     });
-    
-    
-    
+
+
+
     require __DIR__.'/auth.php';
     });
 
