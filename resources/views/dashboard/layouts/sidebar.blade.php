@@ -7,19 +7,19 @@
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
                 <h5 class="text-center text-white">{{ Auth::user()->name }}</h5>
-                <h6 class="text-center text-white">{{ Auth::user()->email }}</h6>
+                <h6 class="text-center text-white">{{ trans('dashboard/sidebar.hospital_management') }}</h6>
 
                 <li>
                     <a href="{{ route('dashboard.index') }}" class="waves-effect">
-                        <i class="ti-home"></i><span class="badge rounded-pill bg-primary float-end">1</span>
-                        <span>Dashboard</span>
+                     <i class="ti-home"></i><span class="badge rounded-pill bg-primary float-end">1</span>
+                        <span>{{ trans('dashboard/sidebar.dashboard') }}</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{ route('dashboard.sections.index') }}" class=" waves-effect">
                         <i class="ti-calendar"></i>
-                        <span>Sections</span>
+                        <span>{{ trans('dashboard/sidebar.section') }}</span>
                     </a>
                 </li>
 

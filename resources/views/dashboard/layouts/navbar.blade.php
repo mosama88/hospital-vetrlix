@@ -131,7 +131,7 @@
                     <div class="p-3">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h5 class="m-0 font-size-16"> Notifications (258) </h5>
+                                <h5 class="m-0 font-size-16"> {{ trans("dashboard/navbar.notifications" ) }} (258) </h5>
                             </div>
                         </div>
                     </div>
@@ -146,7 +146,7 @@
                                     </div>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <h6 class="mb-1">Your order is placed</h6>
+                                    <h6 class="mb-1">{{ trans("dashboard/navbar.your_order_placed" ) }}</h6>
                                     <div class="font-size-12 text-muted">
                                         <p class="mb-1">Dummy text of the printing and typesetting industry.
                                         </p>
@@ -165,7 +165,7 @@
                                     </div>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <h6 class="mb-1">New Message received</h6>
+                                    <h6 class="mb-1">{{ trans("dashboard/navbar.new_message_received" ) }}</h6>
                                     <div class="font-size-12 text-muted">
                                         <p class="mb-1">You have 87 unread messages</p>
                                     </div>
@@ -183,7 +183,7 @@
                                     </div>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <h6 class="mb-1">Your item is shipped</h6>
+                                    <h6 class="mb-1">{{ trans("dashboard/navbar.your_item_shipped" ) }}</h6>
                                     <div class="font-size-12 text-muted">
                                         <p class="mb-1">It is a long established fact that a reader will</p>
                                     </div>
@@ -231,7 +231,7 @@
                     <div class="p-2 border-top">
                         <div class="d-grid">
                             <a class="btn btn-sm btn-link font-size-14 text-center" href="javascript:void(0)">
-                                View all
+                                {{ trans("dashboard/navbar.view_all" ) }}
                             </a>
                         </div>
                     </div>
@@ -247,14 +247,14 @@
                 <div class="dropdown-menu dropdown-menu-end">
                     <!-- item-->
                     <a class="dropdown-item" href="#"><i
-                            class="mdi mdi-account-circle font-size-17 align-middle me-1"></i> Profile</a>
+                            class="mdi mdi-account-circle font-size-17 align-middle me-1"></i> {{ trans("dashboard/navbar.profile" ) }}</a>
                     <a class="dropdown-item" href="#"><i
-                            class="mdi mdi-wallet font-size-17 align-middle me-1"></i> My Wallet</a>
+                            class="mdi mdi-wallet font-size-17 align-middle me-1"></i> {{ trans("dashboard/navbar.my_wallet" ) }}</a>
                     <a class="dropdown-item d-flex align-items-center" href="#"><i
-                            class="mdi mdi-cog font-size-17 align-middle me-1"></i> Settings<span
+                            class="mdi mdi-cog font-size-17 align-middle me-1"></i> {{ trans("dashboard/navbar.settings" ) }}<span
                             class="badge bg-success ms-auto">11</span></a>
                     <a class="dropdown-item" href="#"><i
-                            class="mdi mdi-lock-open-outline font-size-17 align-middle me-1"></i> Lock screen</a>
+                            class="mdi mdi-lock-open-outline font-size-17 align-middle me-1"></i> {{ trans("dashboard/navbar.lock_screen" ) }}</a>
                     <div class="dropdown-divider"></div>
                     @if (auth('web')->check())
                         <form method="POST" action="{{ route('logout.user') }}">
@@ -264,7 +264,7 @@
                     @csrf
                     <a class="dropdown-item text-danger" href="route('logout.user')"
                         onclick="event.preventDefault(); this.closest('form').submit();">
-                        <i class="fas fa-sign-out-alt font-size-17 align-middle me-1"></i>Logout</a>
+                        <i class="fas fa-sign-out-alt font-size-17 align-middle me-1"></i>{{ trans("dashboard/navbar.logout" ) }}</a>
                     </form>
                 </div>
             </div>
