@@ -2,64 +2,65 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Http\Controllers\Controller;
+use App\Models\Section;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Interfaces\Sections\SectionRepositoryInterface;
 
 class SectionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+
+
+    private $sections;
+
+    public function __construct(SectionRepositoryInterface $sections)
     {
-        return view('dashboard.sections.index');
+        $this->sections = $sections;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
+    public function index()
+    {
+       return $this->sections->index();
+    }
+
+
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
-        //
+        return $this->sections->store($request);
+
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(string $id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit(string $id)
     {
-        //
+        return $this->sections->edit($id);
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+
+    public function update(Request $request)
     {
-        //
+        return $this->sections->update( $request);
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+
+    public function destroy(Request $request)
     {
-        //
+        return $this->sections->destroy( $request);
+
     }
 }

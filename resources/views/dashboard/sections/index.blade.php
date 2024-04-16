@@ -16,37 +16,52 @@
             <div class="card">
                 <div class="card-body">
 
-                    <h4 class="card-title">Buttons example</h4>
-                    <p class="card-title-desc">The Buttons extension for DataTables
-                        provides a common set of options, API methods and styling to display
-                        buttons on a page that will interact with a DataTable. The core library
-                        provides the based framework upon which plug-ins can built.
-                    </p>
+                    @include('dashboard.messages_alert')
+
+                    <div class="col-sm-6 col-md-4 col-xl-3">
+                        <div class="my-4">
+                            <!-- Satic modal -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop">
+                                {{ trans('Dashboard/sections_trans.add_section') }}
+                            </button>
+                        </div>
+                        @include('dashboard.sections.add')
+                        <!-- /.modal -->
+                    </div>
 
                     <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap"
                         style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th class="wd-15p border-bottom-0">#</th>
+                                <th class="wd-15p border-bottom-0">{{ trans('Dashboard/sections_trans.section_name') }}
+                                </th>
+                                <th class="wd-20p border-bottom-0">{{ trans('Dashboard/sections_trans.created_at') }}
+                                </th>
+                                <th class="wd-20p border-bottom-0">{{ trans('Dashboard/sections_trans.transaction') }}
+                                </th>
                             </tr>
                         </thead>
 
 
                         <tbody>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
-                                <td>$320,800</td>
-                            </tr>
-
+                            @foreach ($sections as $section)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td><a href="#">{{ $section->name }}</a> </td>
+                                    <td>{{ $section->created_at->diffForHumans() }}</td>
+                                    <td>
+                                        <a class="modal-effect btn btn-sm btn-info" data-bs-toggle="modal"
+                                            href="#edit{{ $section->id }}"><i class="fas fa-edit"></i></a>
+                                        <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"
+                                            data-toggle="modal" href="#delete{{ $section->id }}"><i
+                                                class="fas fa-trash-alt"></i></a>
+                                    </td>
+                                </tr>
+                                @include('dashboard.sections.edit')
+                                @include('dashboard.sections.delete')
+                            @endforeach
                         </tbody>
                     </table>
 
