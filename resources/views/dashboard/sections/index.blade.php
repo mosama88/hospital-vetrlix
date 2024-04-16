@@ -54,13 +54,13 @@
                                     <td>
                                         <a class="modal-effect btn btn-sm btn-info" data-bs-toggle="modal"
                                             href="#edit{{ $section->id }}"><i class="fas fa-edit"></i></a>
-                                        <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"
-                                            data-toggle="modal" href="#delete{{ $section->id }}"><i
-                                                class="fas fa-trash-alt"></i></a>
+
+                                        <a class="modal-effect btn btn-sm btn-danger"  data-bs-toggle="modal"
+                                            href="#delete{{ $section->id }}"><i class="fas fa-trash-alt"></i></a>
+                                            @include('dashboard.sections.delete')
                                     </td>
                                 </tr>
                                 @include('dashboard.sections.edit')
-                                @include('dashboard.sections.delete')
                             @endforeach
                         </tbody>
                     </table>

@@ -3,8 +3,8 @@
 return [
 
 
-    
-    //Arabic 
+
+    //Arabic
 'add'=> 'أضف',
 'close'=> 'اغلاق',
 'edit'=> 'تعديل',
