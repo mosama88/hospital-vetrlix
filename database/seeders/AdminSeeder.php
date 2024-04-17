@@ -20,7 +20,7 @@ class AdminSeeder extends Seeder
         DB::table('admins')->insert([
             'name' => 'Mohamed Osama',
             'email' => 'mosama@gamil.com',
-            'password' => 'password',
+            'password' => Hash::make('password'), // Hashing the password using bcrypt
         ],
         
     );
@@ -29,7 +29,7 @@ class AdminSeeder extends Seeder
     DB::table('admins')->insert([
         'name' => 'Mahmoud fathi',
         'email' => 'mfathi@gamil.com',
-        'password' => 'password',
+        'password' => Hash::make('password'), // Hashing the password using bcrypt
     ],
 
 
@@ -39,7 +39,7 @@ class AdminSeeder extends Seeder
 DB::table('admins')->insert([
     'name' => 'Emad Ali',
     'email' => 'eali@gamil.com',
-    'password' => 'password',
+    'password' => Hash::make('password'), // Hashing the password using bcrypt
 ],
 );
 }

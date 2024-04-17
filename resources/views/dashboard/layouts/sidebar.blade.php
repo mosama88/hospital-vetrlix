@@ -11,15 +11,22 @@
 
                 <li>
                     <a href="{{ route('dashboard.index') }}" class="waves-effect">
-                     <i class="ti-home"></i><span class="badge rounded-pill bg-primary float-end">1</span>
+                        <i class="ti-home"></i><span class="badge rounded-pill bg-primary float-end">1</span>
                         <span>{{ trans('dashboard/sidebar.dashboard') }}</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{ route('dashboard.sections.index') }}" class=" waves-effect">
-                        <i class="ti-calendar"></i>
+                        <i class="fas fa-layer-group"></i>
                         <span>{{ trans('dashboard/sidebar.section') }}</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('dashboard.doctors.index') }}" class=" waves-effect">
+                        <i class="fas fa-user-md"></i>
+                        <span>{{ trans('dashboard/sidebar.doctor') }}</span>
                     </a>
                 </li>
 

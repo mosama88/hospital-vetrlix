@@ -20,6 +20,7 @@ return [
     'hospital_management'=>'Hospital Management Application',
     'dashboard'=>'Dashboard',
     'section'=>'Sections',
+    'doctor'=>'Doctors',
 
-
+    
 ];

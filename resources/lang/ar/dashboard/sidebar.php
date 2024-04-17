@@ -20,6 +20,7 @@ return [
     'hospital_management'=>'برنامج إدارة المستشفيات',
     'dashboard'=>'لوحة التحكم',
     'section'=>'الأقسام',
+    'doctor'=>'الأطباء',
 
 
 
