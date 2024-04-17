@@ -17,4 +17,4 @@
 
 
 
-@yield('scripts-js')
+@yield('scriptsJs')

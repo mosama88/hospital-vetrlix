@@ -5,16 +5,20 @@ namespace App\Http\Controllers\Dashboard;
 use App\Models\Doctor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Interfaces\Doctors\DoctorRepositoryInterface;
 
 class DoctorController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    private $doctors;
+
+    public function __construct(DoctorRepositoryInterface $doctors)
+    {
+        $this->doctors = $doctors;
+    }
+
     public function index()
     {
-        $doctors = Doctor::all();
-        return view('dashboard.doctors.index', compact('doctors'));
+        return $this->doctors->index();
     }
 
     /**
@@ -22,7 +26,7 @@ class DoctorController extends Controller
      */
     public function create()
     {
-        //
+        return $this->doctors->create();
     }
 
     /**
@@ -30,7 +34,7 @@ class DoctorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $this->doctors->store($request);
     }
 
     /**

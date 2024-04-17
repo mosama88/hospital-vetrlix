@@ -79,13 +79,13 @@
                             <div class="container select-hide">
                                 {{-- Select To login --}}
                                 <div class="row mb-3">
-                                    <label class="form-label">{{ trans('dashboard/login_trans.select_login') }}</label>
+                                    <label class="form-label">{{ trans('login_trans.select_login') }}</label>
                                     <div class="col-sm-12">
                                         <select name="somename" class="form-select" id="selectForm"
                                             aria-label="Default select example" onclick="console.log($(this).val())"
                                             onchange="console.log('change is firing')" tabindex="-1">
                                             <option disabled selected="">
-                                                {{ trans('dashboard/login_trans.open_select') }}</option>
+                                                {{ trans('login_trans.open_select') }}</option>
                                             <option value="admin">Admin</option>
                                             <option value="user">User</option>
                                         </select>
@@ -106,9 +106,9 @@
                             {{-- Login Admin --}}
                             <div class="login-form" id="admin">
                                 <h4 class="font-size-18 mt-5 text-center">
-                                    {{ trans('dashboard/login_trans.welcome_back') }}
+                                    {{ trans('login_trans.welcome_back') }}
                                 </h4>
-                                <p class="text-muted text-center">{{ trans('dashboard/login_trans.sign_by') }} Admin
+                                <p class="text-muted text-center">{{ trans('login_trans.sign_by') }} Admin
                                 </p>
                                 <form method="POST" action="{{ route('admin.login') }}">
                                     @csrf
@@ -116,7 +116,7 @@
                                     <!-- Email Input -->
                                     <div class="mb-3">
                                         <label class="form-label"
-                                            for="username">{{ trans('dashboard/login_trans.email') }}</label>
+                                            for="username">{{ trans('login_trans.email') }}</label>
                                         <input type="text" name="email" class="form-control" id="username"
                                             placeholder="Enter username">
                                         <x-input-error :messages="$errors->get('email')" class="mt-2" />
@@ -125,7 +125,7 @@
                                     <!-- Password Input -->
                                     <div class="mb-3">
                                         <label class="form-label"
-                                            for="userpassword">{{ trans('dashboard/login_trans.password') }}</label>
+                                            for="userpassword">{{ trans('login_trans.password') }}</label>
                                         <input type="password" name="password" class="form-control" id="userpassword"
                                             placeholder="Enter password">
                                         <x-input-error :messages="$errors->get('password')" class="mt-2" />
@@ -137,12 +137,12 @@
                                                 <input type="checkbox" name="remember" class="form-check-input"
                                                     id="customControlInline">
                                                 <label class="form-check-label"
-                                                    for="customControlInline">{{ trans('dashboard/login_trans.remember_me') }}</label>
+                                                    for="customControlInline">{{ trans('login_trans.remember_me') }}</label>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 text-end">
                                             <button class="btn btn-primary w-md waves-effect waves-light"
-                                                type="submit">{{ trans('dashboard/login_trans.log_in') }}</button>
+                                                type="submit">{{ trans('login_trans.log_in') }}</button>
                                         </div>
                                     </div>
 
@@ -151,7 +151,7 @@
                                             @if (Route::has('password.request'))
                                                 <a href="{{ route('password.request') }}"><i
                                                         class="mdi mdi-lock"></i>
-                                                    {{ trans('dashboard/login_trans.forget') }}
+                                                    {{ trans('login_trans.forget') }}
                                                 </a>
                                             @endif
                                         </div>
@@ -164,9 +164,9 @@
                             {{-- Login User --}}
                             <div class="login-form" id="user">
                                 <h4 class="font-size-18 mt-5 text-center">
-                                    {{ trans('dashboard/login_trans.welcome_back') }}
+                                    {{ trans('login_trans.welcome_back') }}
                                 </h4>
-                                <p class="text-muted text-center">{{ trans('dashboard/login_trans.sign_by') }} User.
+                                <p class="text-muted text-center">{{ trans('login_trans.sign_by') }} User.
                                 </p>
 
                                 <form method="POST" action="{{ route('user.login') }}">
@@ -175,7 +175,7 @@
                                     <!-- Email Input -->
                                     <div class="mb-3">
                                         <label class="form-label"
-                                            for="username">{{ trans('dashboard/login_trans.email') }}</label>
+                                            for="username">{{ trans('login_trans.email') }}</label>
                                         <input type="text" name="email" class="form-control" id="username"
                                             placeholder="Enter username">
                                         <x-input-error :messages="$errors->get('email')" class="mt-2" />
@@ -184,7 +184,7 @@
                                     <!-- Password Input -->
                                     <div class="mb-3">
                                         <label class="form-label"
-                                            for="userpassword">{{ trans('dashboard/login_trans.password') }}</label>
+                                            for="userpassword">{{ trans('login_trans.password') }}</label>
                                         <input type="password" name="password" class="form-control"
                                             id="userpassword" placeholder="Enter password">
                                         <x-input-error :messages="$errors->get('password')" class="mt-2" />
@@ -196,12 +196,12 @@
                                                 <input type="checkbox" name="remember" class="form-check-input"
                                                     id="customControlInline">
                                                 <label class="form-check-label"
-                                                    for="customControlInline">{{ trans('dashboard/login_trans.remember_me') }}</label>
+                                                    for="customControlInline">{{ trans('login_trans.remember_me') }}</label>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 text-end">
                                             <button class="btn btn-primary w-md waves-effect waves-light"
-                                                type="submit">{{ trans('dashboard/login_trans.log_in') }}</button>
+                                                type="submit">{{ trans('login_trans.log_in') }}</button>
                                         </div>
                                     </div>
 
@@ -210,7 +210,7 @@
                                             @if (Route::has('password.request'))
                                                 <a href="{{ route('password.request') }}"><i
                                                         class="mdi mdi-lock"></i>
-                                                    {{ trans('dashboard/login_trans.forget') }}
+                                                    {{ trans('login_trans.forget') }}
                                                 </a>
                                             @endif
                                         </div>
@@ -224,9 +224,9 @@
 
 
                             <div class="mt-5 pt-4 text-center">
-                                <p>{{ trans('dashboard/login_trans.dont_have_account') }} <a
+                                <p>{{ trans('login_trans.dont_have_account') }} <a
                                         href="{{ route('register') }}" class="fw-medium text-primary">
-                                        {{ trans('dashboard/login_trans.register') }} </a> </p>
+                                        {{ trans('login_trans.register') }} </a> </p>
                                 <p>©
                                     <script>
                                         document.write(new Date().getFullYear())

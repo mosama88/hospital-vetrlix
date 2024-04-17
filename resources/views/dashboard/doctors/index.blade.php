@@ -1,11 +1,11 @@
 @extends('dashboard.layouts.master')
 @section('title', 'Doctors')
-@section('page-title', trans('page-title.doctors'))
+@section('page-title', trans('doctors.doctors'))
 @section('page-link-back')
     <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">{{ trans('page-title.dashboard') }}</a>
     </li>
 @endsection
-@section('current-page', trans('page-title.sections'))
+@section('current-page', trans('doctors.doctors'))
 @section('content')
     @include('dashboard.layouts.page-link')
     <!--Internal   Notify -->
@@ -23,90 +23,82 @@
                         <div class="col-sm-12 col-md-12 col-xl-12 text-end">
                             <div class="my-4">
                                 <!-- Satic modal -->
-                                <button type="button" class="btn btn-primary btn-lg waves-effect waves-light"
-                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                    {{ trans('sections_trans.add_section') }}
-                                </button>
+                                <a href="{{ route('dashboard.doctors.create') }}"
+                                    class="btn btn-primary btn-lg waves-effect waves-light">
+                                    {{ trans('doctors.add_doctor') }}
+                                </a>
                             </div>
-                            {{-- @include('dashboard.doctors.add') --}}
-                            <!-- /.modal -->
                         </div>
 
                     </div>
+                    <div class="text-center coming-soon-search-form pt-4">
+                        <form action="#">
+                            <input type="text" placeholder="email, name, phone, section">
+                            <button type="submit" class="btn btn-primary">Search<i class="fas fa-search mx-2"></i></button>
+                        </form>
+                        <!-- end form -->
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered mb-0">
 
-                    <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap"
-                        style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                        <thead>
-                            <tr>
-                                <th class="wd-15p border-bottom-0">#</th>
-                                <th class="wd-15p border-bottom-0">Name</th>
-                                <th class="wd-15p border-bottom-0">email</th>
-                                <th class="wd-15p border-bottom-0">Phone</th>
-                                <th class="wd-15p border-bottom-0">Price</th>
-                                <th class="wd-15p border-bottom-0">Section</th>
-                                <th class="wd-15p border-bottom-0">Status</th>
-                            </tr>
-                        </thead>
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>{{ trans('doctors.name') }}</th>
+                                                    <th>{{ trans('doctors.email') }}</th>
+                                                    <th>{{ trans('doctors.phone') }}</th>
+                                                    <th>{{ trans('doctors.price') }}</th>
+                                                    <th>{{ trans('doctors.section') }}</th>
+                                                    <th>{{ trans('doctors.Status') }}</th>
+                                                    <th>{{ trans('doctors.Processes') }}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($doctors as $doctor)
+                                                    <tr>
+                                                        <td>{{ $loop->iteration }}</td>
+                                                        <td><a href="#">{{ $doctor->name }}</a> </td>
+                                                        <td>{{ $doctor->email }}</td>
+                                                        <td>{{ $doctor->phone }}</td>
+                                                        <td>{{ $doctor->price }}</td>
+                                                        <td>{{ $doctor->section->name }}</td>
+                                                        <td>
+                                                            {{ $doctor->status }}
+                                                        </td>
+                                                        <td>
+                                                            <a class="modal-effect btn btn-sm btn-info"
+                                                                data-bs-toggle="modal" href="#edit{{ $doctor->id }}"><i
+                                                                    class="fas fa-edit"></i></a>
 
+                                                            <a class="modal-effect btn btn-sm btn-danger"
+                                                                data-bs-toggle="modal" href="#delete{{ $doctor->id }}"><i
+                                                                    class="fas fa-trash-alt"></i></a>
+                                                            {{-- @include('dashboard.doctors.delete') --}}
+                                                        </td>
+                                                    </tr>
+                                                    {{-- @include('dashboard.doctors.edit') --}}
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
 
-                        <tbody>
-                            @foreach ($doctors as $doctor)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td><a href="#">{{ $doctor->name }}</a> </td>
-                                    <td>{{ $doctor->email }}</td>
-                                    <td>{{ $doctor->phone }}</td>
-                                    <td>{{ $doctor->price }}</td>
-                                    <td>{{ $doctor->section->name }}</td>
-                                    <td>
-                                        {{ $doctor->status }}
-                                    </td>
-                                    <td>
-                                        <a class="modal-effect btn btn-sm btn-info" data-bs-toggle="modal"
-                                            href="#edit{{ $doctor->id }}"><i class="fas fa-edit"></i></a>
+                                </div>
+                                {{ $doctors->render('pagination::bootstrap-5') }}
+                            </div>
+                        </div>
+                    </div> <!-- end row -->
 
-                                        <a class="modal-effect btn btn-sm btn-danger" data-bs-toggle="modal"
-                                            href="#delete{{ $doctor->id }}"><i class="fas fa-trash-alt"></i></a>
-                                        {{-- @include('dashboard.doctors.delete') --}}
-                                    </td>
-                                </tr>
-                                {{-- @include('dashboard.doctors.edit') --}}
-                            @endforeach
-                        </tbody>
-                    </table>
-                    {{-- {{ $sections->render('pagination::bootstrap-5') }} --}}
-
-                </div>
+                </div> <!-- container-fluid -->
             </div>
-        </div> <!-- end col -->
-    </div> <!-- end row -->
-    {{-- End Row --}}
-
-
-
+        </div>
+    </div>
+    <!-- End Page-content -->
 
     @include('dashboard.layouts.scripts')
-    {{-- Datatable --}}
-    <!-- Required datatable js -->
-    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <!-- Buttons examples -->
-    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
-    <script src="{{ asset('dashboard') }}/assets/libs/jszip/jszip.min.js"></script>
-    <script src="{{ asset('dashboard') }}/assets/libs/pdfmake/build/pdfmake.min.js"></script>
-    <script src="{{ asset('dashboard') }}/assets/libs/pdfmake/build/vfs_fonts.js"></script>
-    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
-    <!-- Responsive examples -->
-    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js">
-    </script>
-
-    <!-- Datatable init js -->
-    <script src="{{ asset('dashboard') }}/assets/js/pages/datatables.init.js"></script>
-
 
     <!--Internal  Notify js -->
     <script src="{{ asset('dashboard') }}/assets/plugins/notify/js/notifIt.js"></script>
