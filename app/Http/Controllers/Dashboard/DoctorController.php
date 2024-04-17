@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Http\Controllers\Controller;
+use App\Models\Doctor;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class DoctorController extends Controller
 {
@@ -12,7 +13,8 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        //
+        $doctors = Doctor::all();
+        return view('dashboard.doctors.index', compact('doctors'));
     }
 
     /**

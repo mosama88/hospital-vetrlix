@@ -1,11 +1,11 @@
 @extends('dashboard.layouts.master')
-@section('title', 'Sections')
-@section('page-title', trans('Dashboard/page-title.sections'))
+@section('title', 'Doctors')
+@section('page-title', trans('page-title.doctors'))
 @section('page-link-back')
-    <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">{{ trans('Dashboard/page-title.dashboard') }}</a>
+    <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">{{ trans('page-title.dashboard') }}</a>
     </li>
 @endsection
-@section('current-page', trans('Dashboard/page-title.sections'))
+@section('current-page', trans('page-title.sections'))
 @section('content')
     @include('dashboard.layouts.page-link')
     <!--Internal   Notify -->
@@ -25,10 +25,10 @@
                                 <!-- Satic modal -->
                                 <button type="button" class="btn btn-primary btn-lg waves-effect waves-light"
                                     data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                    {{ trans('Dashboard/sections_trans.add_section') }}
+                                    {{ trans('sections_trans.add_section') }}
                                 </button>
                             </div>
-                            @include('dashboard.sections.add')
+                            {{-- @include('dashboard.doctors.add') --}}
                             <!-- /.modal -->
                         </div>
 
@@ -39,32 +39,38 @@
                         <thead>
                             <tr>
                                 <th class="wd-15p border-bottom-0">#</th>
-                                <th class="wd-15p border-bottom-0">{{ trans('Dashboard/sections_trans.section_name') }}
-                                </th>
-                                <th class="wd-20p border-bottom-0">{{ trans('Dashboard/sections_trans.created_at') }}
-                                </th>
-                                <th class="wd-20p border-bottom-0">{{ trans('Dashboard/sections_trans.transaction') }}
-                                </th>
+                                <th class="wd-15p border-bottom-0">Name</th>
+                                <th class="wd-15p border-bottom-0">email</th>
+                                <th class="wd-15p border-bottom-0">Phone</th>
+                                <th class="wd-15p border-bottom-0">Price</th>
+                                <th class="wd-15p border-bottom-0">Section</th>
+                                <th class="wd-15p border-bottom-0">Status</th>
                             </tr>
                         </thead>
 
 
                         <tbody>
-                            @foreach ($sections as $section)
+                            @foreach ($doctors as $doctor)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td><a href="#">{{ $section->name }}</a> </td>
-                                    <td>{{ $section->created_at->diffForHumans() }}</td>
+                                    <td><a href="#">{{ $doctor->name }}</a> </td>
+                                    <td>{{ $doctor->email }}</td>
+                                    <td>{{ $doctor->phone }}</td>
+                                    <td>{{ $doctor->price }}</td>
+                                    <td>{{ $doctor->section->name }}</td>
+                                    <td>
+                                        {{ $doctor->status }}
+                                    </td>
                                     <td>
                                         <a class="modal-effect btn btn-sm btn-info" data-bs-toggle="modal"
-                                            href="#edit{{ $section->id }}"><i class="fas fa-edit"></i></a>
+                                            href="#edit{{ $doctor->id }}"><i class="fas fa-edit"></i></a>
 
                                         <a class="modal-effect btn btn-sm btn-danger" data-bs-toggle="modal"
-                                            href="#delete{{ $section->id }}"><i class="fas fa-trash-alt"></i></a>
-                                        @include('dashboard.sections.delete')
+                                            href="#delete{{ $doctor->id }}"><i class="fas fa-trash-alt"></i></a>
+                                        {{-- @include('dashboard.doctors.delete') --}}
                                     </td>
                                 </tr>
-                                @include('dashboard.sections.edit')
+                                {{-- @include('dashboard.doctors.edit') --}}
                             @endforeach
                         </tbody>
                     </table>

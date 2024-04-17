@@ -7,26 +7,26 @@
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
                 <h5 class="text-center text-white">{{ Auth::user()->name }}</h5>
-                <h6 class="text-center text-white">{{ trans('dashboard/sidebar.hospital_management') }}</h6>
+                <h6 class="text-center text-white">{{ trans('sidebar.hospital_management') }}</h6>
 
                 <li>
                     <a href="{{ route('dashboard.index') }}" class="waves-effect">
                         <i class="ti-home"></i><span class="badge rounded-pill bg-primary float-end">1</span>
-                        <span>{{ trans('dashboard/sidebar.dashboard') }}</span>
+                        <span>{{ trans('sidebar.dashboard') }}</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{ route('dashboard.sections.index') }}" class=" waves-effect">
                         <i class="fas fa-layer-group"></i>
-                        <span>{{ trans('dashboard/sidebar.section') }}</span>
+                        <span>{{ trans('sidebar.section') }}</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{ route('dashboard.doctors.index') }}" class=" waves-effect">
                         <i class="fas fa-user-md"></i>
-                        <span>{{ trans('dashboard/sidebar.doctor') }}</span>
+                        <span>{{ trans('sidebar.doctor') }}</span>
                     </a>
                 </li>
 

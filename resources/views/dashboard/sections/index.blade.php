@@ -1,11 +1,11 @@
 @extends('dashboard.layouts.master')
 @section('title', 'Sections')
-@section('page-title', trans('Dashboard/page-title.sections'))
+@section('page-title', trans('page-title.sections'))
 @section('page-link-back')
-    <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">{{ trans('Dashboard/page-title.dashboard') }}</a>
+    <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">{{ trans('page-title.dashboard') }}</a>
     </li>
 @endsection
-@section('current-page', trans('Dashboard/page-title.sections'))
+@section('current-page', trans('page-title.sections'))
 @section('content')
     @include('dashboard.layouts.page-link')
     <!--Internal   Notify -->
@@ -25,7 +25,7 @@
                                 <!-- Satic modal -->
                                 <button type="button" class="btn btn-primary btn-lg waves-effect waves-light"
                                     data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                    {{ trans('Dashboard/sections_trans.add_section') }}
+                                    {{ trans('sections_trans.add_section') }}
                                 </button>
                             </div>
                             @include('dashboard.sections.add')
@@ -39,11 +39,11 @@
                         <thead>
                             <tr>
                                 <th class="wd-15p border-bottom-0">#</th>
-                                <th class="wd-15p border-bottom-0">{{ trans('Dashboard/sections_trans.section_name') }}
+                                <th class="wd-15p border-bottom-0">{{ trans('sections_trans.section_name') }}
                                 </th>
-                                <th class="wd-20p border-bottom-0">{{ trans('Dashboard/sections_trans.created_at') }}
+                                <th class="wd-20p border-bottom-0">{{ trans('sections_trans.created_at') }}
                                 </th>
-                                <th class="wd-20p border-bottom-0">{{ trans('Dashboard/sections_trans.transaction') }}
+                                <th class="wd-20p border-bottom-0">{{ trans('sections_trans.transaction') }}
                                 </th>
                             </tr>
                         </thead>

@@ -8,7 +8,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ route('dashboard.sections.store') }}" autocomplete="off">
+                <form method="POST" action="{{ route('dashboard.doctors.store') }}" autocomplete="off">
                     @csrf
                     <div class="form-group">
                         <label for="recipient-name"

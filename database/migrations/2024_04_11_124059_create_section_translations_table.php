@@ -12,12 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('section_translations', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('name');
             $table->string('locale')->index(); //Ar Or EN
-            $table->integer('section_id')->unsigned();
             $table->unique(['section_id','locale']);
-            $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
+            $table->foreignId('section_id')->references('id')->on('sections')->onDelete('cascade');
         });
     }
 
