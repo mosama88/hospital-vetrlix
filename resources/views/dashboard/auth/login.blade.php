@@ -1,5 +1,5 @@
+@section('title', trans('dashboard/login_trans.log_in'))
 <style>
-  
     .login-form {
         display: none;
     }

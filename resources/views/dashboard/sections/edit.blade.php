@@ -24,10 +24,10 @@
                         @enderror
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary"
-                            data-bs-dismiss="modal">{{ trans('dashboard/sections_trans.close') }}</button>
                         <button type="submit"
                             class="btn btn-primary">{{ trans('dashboard/sections_trans.edit') }}</button>
+                        <button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">{{ trans('dashboard/sections_trans.close') }}</button>
                     </div>
                 </form>
             </div>
