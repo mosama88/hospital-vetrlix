@@ -2,7 +2,7 @@
 
 
 
-//English 
+//English
 
 return array (
   'doctors' => 'Doctors',
@@ -29,4 +29,5 @@ return array (
   'section' => 'Section',
   'submit' => 'submit',
   'update_password' => 'Update Password',
+  'back'=> 'Back',
 );

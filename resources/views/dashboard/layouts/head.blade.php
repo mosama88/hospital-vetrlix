@@ -26,6 +26,8 @@
         {{-- RTL --}}
         <link href="{{ asset('dashboard') }}/assets/css/app-rtl.min.css" id="app-style" rel="stylesheet"
             type="text/css">
+
+        <link rel="stylesheet" href="{{ asset('dashboard') }}/assets/css/multi-select-tag.css">
     @else
         <!doctype html>
         <html lang="en">
@@ -49,4 +51,6 @@
             <!-- App Css-->
             <link href="{{ asset('dashboard') }}/assets/css/app.min.css" id="app-style" rel="stylesheet"
                 type="text/css">
+
+            <link rel="stylesheet" href="{{ asset('dashboard') }}/assets/css/multi-select-tag.css">
 @endif

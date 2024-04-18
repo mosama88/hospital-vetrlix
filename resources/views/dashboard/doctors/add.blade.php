@@ -6,9 +6,9 @@
     <li class="breadcrumb-item"><a href="{{ route('dashboard.doctors.index') }}">{{ trans('doctors.doctors') }}</a>
     </li>
 @endsection
-
 @section('current-page', trans('doctors.add_doctor'))
 @section('content')
+
     @include('dashboard.layouts.page-link')
 
     {{-- Start Row --}}
@@ -24,7 +24,7 @@
                         @csrf
 
                         {{-- Name Inputs --}}
-                        <div class="row mb-3">
+                        <div class="row mb-4">
                             <label for="example-text-input"
                                 class="col-sm-2 col-form-label">{{ trans('doctors.name') }}</label>
                             <div class="col-sm-10">
@@ -34,7 +34,7 @@
                         <!-- end row -->
 
                         {{-- Email Inputs --}}
-                        <div class="row mb-3">
+                        <div class="row mb-4">
                             <label for="example-email-input"
                                 class="col-sm-2 col-form-label">{{ trans('doctors.email') }}</label>
                             <div class="col-sm-10">
@@ -45,7 +45,7 @@
                         <!-- end row -->
 
                         {{-- Password Inputs --}}
-                        <div class="row mb-3">
+                        <div class="row mb-4">
                             <label for="example-password-input"
                                 class="col-sm-2 col-form-label">{{ trans('doctors.password') }}</label>
                             <div class="col-sm-10">
@@ -56,7 +56,7 @@
                         <!-- end row -->
 
                         {{-- Phone Inputs --}}
-                        <div class="row mb-3">
+                        <div class="row mb-4">
                             <label for="example-tel-input"
                                 class="col-sm-2 col-form-label">{{ trans('doctors.phone') }}</label>
                             <div class="col-sm-10">
@@ -67,7 +67,7 @@
                         <!-- end row -->
 
                         {{-- Section Inputs --}}
-                        <div class="row mb-3">
+                        <div class="row mb-4">
                             <label class="col-sm-2 col-form-label">{{ trans('doctors.section') }}</label>
                             <div class="col-sm-10">
                                 <select class="form-select" aria-label="Default select example">
@@ -81,59 +81,71 @@
                         <!-- end row -->
 
                         {{-- Appointments Inputs --}}
-                        <div class="row mb-3">
+                        <div class="row mb-4">
                             <label class="col-sm-2 col-form-label">{{ trans('doctors.appointments') }}</label>
                             <div class="col-sm-10">
-                                <select class="form-select" multiple="multiple" aria-label="multiple select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                <select class="form-select" name="appointments" id="appointments" multiple>
+                                    <option value="1">Saturday</option>
+                                    <option value="2">Sunday</option>
+                                    <option value="3">Monday</option>
+                                    <option value="4">Tuesday</option>
+                                    <option value="5">Wednesday</option>
+                                    <option value="5">Thursday</option>
+                                    <option value="5">Friday</option>
                                 </select>
                             </div>
                         </div>
+                        <!-- end row -->
+
+
+                        {{-- Price Inputs --}}
+                        <div class="row mb-4">
+                            <label for="example-number-input"
+                                class="col-sm-2 col-form-label">{{ trans('doctors.price') }}</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" placeholder="500" type="number" value=""
+                                    id="example-number-input">
+                            </div>
+                        </div>
+                        <!-- end row -->
+
+                        {{-- Image Inputs --}}
+                        <div class="row mb-4">
+                            <label for="example-text-input"
+                                class="col-sm-2 col-form-label">{{ trans('doctors.img') }}</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="file" placeholder="Artisanal kale"
+                                    id="example-text-input">
+                            </div>
+                        </div>
+                        <!-- end row -->
+
+                        {{-- Submit --}}
+
+                        {{-- Image Inputs --}}
+                        <div class="col-12 mb-4 text-center">
+                            <button type="submit"
+                                class="btn btn-primary waves-effect btn-lg mx-3">{{ trans('doctors.submit') }}</button>
+                            <a href="{{ route('dashboard.doctors.index') }}"
+                                class="btn btn-secondary waves-effect btn-lg">{{ trans('doctors.back') }}</a>
+                        </div>
+
+
+                    </form>
                 </div>
-                <!-- end row -->
-
-
-                {{-- Price Inputs --}}
-                <div class="row mb-3">
-                    <label for="example-number-input" class="col-sm-2 col-form-label">{{ trans('doctors.price') }}</label>
-                    <div class="col-sm-10">
-                        <input class="form-control" placeholder="500" type="number" value=""
-                            id="example-number-input">
-                    </div>
-                </div>
-                <!-- end row -->
-
-                {{-- Image Inputs --}}
-                <div class="row mb-3">
-                    <label for="example-text-input" class="col-sm-2 col-form-label">{{ trans('doctors.img') }}</label>
-                    <div class="col-sm-10">
-                        <input class="form-control" type="file" placeholder="Artisanal kale" id="example-text-input">
-                    </div>
-                </div>
-                <!-- end row -->
-
-                {{-- Submit --}}
-
-                {{-- Image Inputs --}}
-                <div class="col-12 mb-3 text-end">
-                    <button type="submit"
-                        class="btn btn-primary waves-effect waves-light">{{ trans('doctors.submit') }}</button>
-                </div>
-
-
-                </form>
             </div>
-        </div>
-        <!-- end row -->
-    </div><!-- end cardbody -->
+            <!-- end row -->
+        </div><!-- end cardbody -->
     </div><!-- end card -->
     </div> <!-- end col -->
-    </div>
 
     @include('dashboard.layouts.scripts')
+    <script src="{{ asset('dashboard') }}/assets/js/pages/multi-select-tag.js"></script>
+    <script>
+        new MultiSelectTag('appointments') // id
+    </script>
+
+
 
 
 @endsection

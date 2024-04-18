@@ -29,4 +29,5 @@ return array (
   'section' => 'القسم',
   'submit' => 'تاكيد',
   'update_password' => 'تغير كلمة المرور',
+  'back'=> 'رجوع',
 );
