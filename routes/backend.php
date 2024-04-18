@@ -14,6 +14,8 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |   $2y$10$2YUyPz/1nmGGZTfteXWCteClA6R7bh45aQalwBGFctG0jbfjNmjdC
+
+
 */
 
 
