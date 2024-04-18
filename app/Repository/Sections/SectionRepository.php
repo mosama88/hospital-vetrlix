@@ -2,7 +2,6 @@
 
 namespace  App\Repository\Sections;
 use Illuminate\Http\Request;
-
 use App\Models\Section;
 use App\Interfaces\Sections\SectionRepositoryInterface;
 

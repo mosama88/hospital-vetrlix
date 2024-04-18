@@ -1,16 +1,16 @@
 <?php
 
 namespace  App\Repository\Doctors;
-use Illuminate\Http\Request;
-
-use App\Models\Section;
-use App\Interfaces\Doctors\DoctorRepositoryInterface;
 use App\Models\Doctor;
+use App\Models\Section;
+use App\Traits\UploadTrait;
+use Illuminate\Http\Request;
+use App\Interfaces\Doctors\DoctorRepositoryInterface;
 
 class DoctorRepository implements DoctorRepositoryInterface
 {
 
-    // use UplaodTrait;
+    use UploadTrait;
     public function index(){
         $doctors = Doctor::paginate(10);
         return view('dashboard.doctors.index', compact('doctors'));
