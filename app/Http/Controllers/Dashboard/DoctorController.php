@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Models\Doctor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Dashboard\DoctorRequest;
 use App\Interfaces\Doctors\DoctorRepositoryInterface;
 
 class DoctorController extends Controller
@@ -32,7 +33,7 @@ class DoctorController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(DoctorRequest $request)
     {
         return $this->doctors->store($request);
     }

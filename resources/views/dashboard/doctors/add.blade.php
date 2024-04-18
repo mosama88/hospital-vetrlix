@@ -15,6 +15,8 @@
 
     <div class="row">
         <div class="col-12">
+            @include('dashboard.messages_alert')
+
             <div class="card">
                 <div class="card-body">
 
@@ -30,6 +32,7 @@
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="name" placeholder="اسم الطبيب"
                                     id="example-text-input">
+
                             </div>
                         </div>
                         <!-- end row -->
