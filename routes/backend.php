@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\DoctorController;
 use App\Http\Controllers\Dashboard\SectionController;
+use App\Http\Controllers\Dashboard\DashboardController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -39,8 +40,12 @@ Route::group(
         ##################################### End Dashboard Admin #################################
         Route::middleware(['auth:admin', 'verified'])->name('dashboard.')->group(function(){
         Route::get('dashboard/index',[DashboardController::class,'index'])->name('index');
+         ##################################### Start Dashboard sections ################################
             Route::resource('/sections', SectionController::class);
-
+         ##################################### End Dashboard sections ################################
+          ##################################### Start Dashboard sections ################################
+          Route::resource('/doctors', DoctorController::class);
+          ##################################### End Dashboard sections ################################
     });
 
 

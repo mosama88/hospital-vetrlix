@@ -14,13 +14,13 @@ return [
     */
 
 
-    //Arabic
+    //English
 
 
-    'hospital_management'=>'برنامج إدارة المستشفيات',
-    'dashboard'=>'لوحة التحكم',
-    'section'=>'الأقسام',
+    'hospital_management'=>'Hospital Management Application',
+    'dashboard'=>'Dashboard',
+    'section'=>'Sections',
+    'doctor'=>'Doctors',
 
-
-
+    
 ];

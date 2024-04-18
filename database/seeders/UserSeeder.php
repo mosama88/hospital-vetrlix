@@ -20,8 +20,8 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Rasha Mousa',
             'email' => 'rmousa@gamil.com',
-            'password' => 'password',
-        ],
+            'password' => Hash::make('password'), // Hashing the password using bcrypt 
+               ],
         
     );
    
@@ -29,8 +29,8 @@ class UserSeeder extends Seeder
     DB::table('users')->insert([
         'name' => 'Ahmed Azzoz',
         'email' => 'azooz@gamil.com',
-        'password' => 'password',
-    ],
+        'password' => Hash::make('password'), // Hashing the password using bcrypt
+        ],
 
 
 
@@ -39,7 +39,7 @@ class UserSeeder extends Seeder
 DB::table('users')->insert([
     'name' => 'Menan Ahmed',
     'email' => 'menan@gamil.com',
-    'password' => 'password',
+    'password' => Hash::make('password'), // Hashing the password using bcrypt
 ],
 );
 }

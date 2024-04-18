@@ -4,7 +4,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">
-                        {{ trans('Dashboard/sections_trans.warning') }}
+                        {{ trans('sections_trans.warning') }}
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -15,7 +15,7 @@
                         @csrf
                         <div class="form-group">
                             <div class="modal-body">
-                                {{ trans('Dashboard/sections_trans.warning_message') }} <strong
+                                {{ trans('sections_trans.warning_message') }} <strong
                                     class="text-danger">{{ $section->name }}</strong> ?
                             </div>
                         </div>
@@ -25,9 +25,9 @@
                         </div>
                         <div class="modal-footer">
                             <button type="submit"
-                                class="btn btn-danger">{{ trans('Dashboard/sections_trans.delete') }}</button>
+                                class="btn btn-danger">{{ trans('sections_trans.delete') }}</button>
                             <button type="button" class="btn btn-secondary"
-                                data-bs-dismiss="modal">{{ trans('Dashboard/sections_trans.close') }}</button>
+                                data-bs-dismiss="modal">{{ trans('sections_trans.close') }}</button>
                         </div>
                     </form>
                 </div>

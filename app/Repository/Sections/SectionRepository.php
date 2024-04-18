@@ -9,14 +9,14 @@ use App\Interfaces\Sections\SectionRepositoryInterface;
 class SectionRepository implements SectionRepositoryInterface
 {
     public function index(){
-        $sections = Section::get();
+        $sections = Section::all();
         return view('dashboard.sections.index',compact('sections'));
     }
 
     public function store( $request)
     {
         $data = $request->validate([
-            'name'=> 'required|string|min:2|max:30',
+            'name'=> 'required|string|min:2|max:100',
         ]);
         $name = $request->name;
         Section::create($data);
@@ -34,7 +34,7 @@ class SectionRepository implements SectionRepositoryInterface
    public function update( $request)
    {
        $data = $request->validate([
-        'name'=> 'required|string|min:2|max:30',
+        'name'=> 'required|string|min:2|max:100',
        ]);
        $name = $request->name;
        Section::findOrFail($request->id)->update($data);
