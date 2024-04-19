@@ -3,11 +3,12 @@
 namespace  App\Repository\Doctors;
 use App\Models\Doctor;
 use App\Models\Section;
-use App\Traits\UploadTrait;
+use App\Models\Appointment;
 // use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Traits\UploadTrait;
 // use Illuminate\Support\Facades\Hash;
 // use App\Http\Requests\Dashboard\DoctorRequest;
+use Illuminate\Support\Facades\DB;
 use App\Interfaces\Doctors\DoctorRepositoryInterface;
 
 class DoctorRepository implements DoctorRepositoryInterface
@@ -15,7 +16,7 @@ class DoctorRepository implements DoctorRepositoryInterface
 
     use UploadTrait;
     public function index(){
-        $doctors = Doctor::paginate(10);
+        $doctors = Doctor::all();
         return view('dashboard.doctors.index', compact('doctors'));
     }
 
@@ -33,7 +34,7 @@ class DoctorRepository implements DoctorRepositoryInterface
             $doctors->save();
             //Store Translate
             $doctors->name = $request->name;
-            $doctors->appointments =implode(",",$request->appointments);
+            $doctors->appointments =$request->appointments;
             $doctors->save();
             //Upload img
             $this->verifyAndStoreImage($request,'photo','doctors','upload_image',$doctors->id,'App\Models\Doctor');
@@ -47,7 +48,8 @@ DB::commit();
     public function create()
     {
         $sections = Section::all();
-        return view('dashboard.doctors.add', compact('sections'));
+        $appointments = Appointment::all();
+        return view('dashboard.doctors.add', compact('sections','appointments'));
     }
 
 

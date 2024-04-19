@@ -37,11 +37,13 @@
                         <thead>
                             <tr>
                                 <th>#</th>
+                                <th>{{ trans('doctors.img') }}</th>
                                 <th>{{ trans('doctors.name') }}</th>
                                 <th>{{ trans('doctors.email') }}</th>
                                 <th>{{ trans('doctors.phone') }}</th>
                                 <th>{{ trans('doctors.price') }}</th>
                                 <th>{{ trans('doctors.section') }}</th>
+                                <th>{{ trans('doctors.appointments') }}</th>
                                 <th>{{ trans('doctors.Status') }}</th>
                                 <th>{{ trans('doctors.Processes') }}</th>
                             </tr>
@@ -50,11 +52,21 @@
                             @foreach ($doctors as $doctor)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
+                                    <td>
+                                        @if ($doctor->image)
+                                            <img src="{{asset('dashboard/assets/images/uploads/doctors/' . $doctor->image->filename) }}"
+                                                class="rounded-circle avatar-md" alt="">
+                                        @else
+                                            <img src="{{asset('dashboard/assets/images/uploads/doctors/doctor_default.png') }}"
+                                            class="rounded-circle avatar-md" alt="">
+                                        @endif
+                                    </td>
                                     <td><a href="#">{{ $doctor->name }}</a> </td>
                                     <td>{{ $doctor->email }}</td>
                                     <td>{{ $doctor->phone }}</td>
                                     <td>{{ $doctor->price }}</td>
                                     <td>{{ $doctor->section->name }}</td>
+                                    <td>{{ $doctor->appointment?->name }}</td>
                                     <td>
                                         {{ $doctor->status }}
                                     </td>
