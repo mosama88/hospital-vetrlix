@@ -84,18 +84,34 @@
                         </div>
                         <!-- end row -->
 
+
+                        {{-- Section Inputs --}}
+                        <div class="row mb-4">
+                            <label class="col-sm-2 col-form-label">{{ trans('doctors.Status') }}</label>
+                            <div class="col-sm-10">
+                                <select name="status" class="form-select" aria-label="Default select example">
+                                    <option selected="">Open this select menu</option>
+                                    <option value="1">مفعل</option>
+                                    <option value="2">غير مفعل</option>2
+                                </select>
+                            </div>
+                        </div>
+                        <!-- end row -->
+
+
+
                         {{-- Appointments Inputs --}}
                         <div class="row mb-4">
                             <label class="col-sm-2 col-form-label">{{ trans('doctors.appointments') }}</label>
                             <div class="col-sm-10">
                                 <select class="form-select" name="appointments[]" id="appointments" multiple>
-                                    <option value="السبت">السبت</option>
-                                    <option value="الاحد">الاحد</option>
-                                    <option value="الاثنين">الاثنين</option>
-                                    <option value="الثلاثاء">الثلاثاء</option>
-                                    <option value="الاربعاء">الاربعاء</option>
-                                    <option value="الخميس">الخميس</option>
-                                    <option value="الجمعه">الجمعه</option>
+                                    <option value="Saturday">السبت</option>
+                                    <option value="Sunday">الاحد</option>
+                                    <option value="Monday">الاثنين</option>
+                                    <option value="Tuesday">الثلاثاء</option>
+                                    <option value="Wednesday">الاربعاء</option>
+                                    <option value="Thursday">الخميس</option>
+                                    <option value="Friday">الجمعه</option>
                                 </select>
                             </div>
                         </div>

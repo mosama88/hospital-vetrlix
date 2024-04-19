@@ -33,7 +33,7 @@ class DoctorController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(DoctorRequest $request)
+    public function store(Request $request)
     {
         return $this->doctors->store($request);
     }

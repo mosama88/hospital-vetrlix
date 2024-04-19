@@ -9,7 +9,7 @@ interface DoctorRepositoryInterface
 {
 
     public function index();
-    public function store(DoctorRequest $request);
+    public function store($request);
     public function create();
 
     public function edit($id);

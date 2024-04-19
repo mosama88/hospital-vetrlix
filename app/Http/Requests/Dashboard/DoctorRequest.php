@@ -26,8 +26,9 @@ class DoctorRequest extends FormRequest
             'email'=>'required|email|min:3|unique:users,email',
             'password'=>'required|string|min:6|max:255',
             'phone'=>'required|string|min:3|max:20',
-            'section_id' => 'required|exists:sections,id',
             'price'=>'required|string|min:2|max:20',
+            'appointments' => 'required',
+            'section_id'=> 'required|exists:sections,id',
         ];
     }
 
