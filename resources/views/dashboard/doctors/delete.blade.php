@@ -9,10 +9,9 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('dashboard.doctors.destroy', 'test') }}" method="post">
-
-                        @method('DELETE')
+                    <form action="{{ route('dashboard.doctors.destroy', $doctor->id) }}" method="POST">
                         @csrf
+                        @method('DELETE')
                         <div class="form-group">
                             <div class="modal-body">
                                 {{ trans('doctors.warning_message') }} <strong

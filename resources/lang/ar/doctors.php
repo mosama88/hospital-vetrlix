@@ -30,4 +30,8 @@ return array (
   'submit' => 'تاكيد',
   'update_password' => 'تغير كلمة المرور',
   'back'=> 'رجوع',
+  'edit'=> 'تعديل',
+  'edit_doctor'=> 'تعديل بيانات الدكتور',
+
+
 );

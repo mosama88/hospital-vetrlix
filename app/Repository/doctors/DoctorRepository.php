@@ -83,4 +83,3 @@ DB::commit();
          return redirect()->route('dashboard.doctors.index')->with('delete', 'تم حذف الدكتور بنجاح ');
         }
 }
-

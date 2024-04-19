@@ -54,11 +54,11 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>
                                         @if ($doctor->image)
-                                            <img src="{{asset('dashboard/assets/images/uploads/doctors/' . $doctor->image->filename) }}"
-                                                class="rounded-circle avatar-md" alt="">
+                                            <img src="{{ asset('dashboard/assets/images/uploads/doctors/' . $doctor->image->filename) }}"
+                                                class="rounded avatar-md" alt="">
                                         @else
-                                            <img src="{{asset('dashboard/assets/images/uploads/doctors/doctor_default.png') }}"
-                                            class="rounded-circle avatar-md" alt="">
+                                            <img src="{{ asset('dashboard/assets/images/uploads/doctors/doctor_default.png') }}"
+                                                class="rounded avatar-md" alt="">
                                         @endif
                                     </td>
                                     <td><a href="#">{{ $doctor->name }}</a> </td>
@@ -71,12 +71,15 @@
                                         {{ $doctor->status }}
                                     </td>
                                     <td>
-                                        <a class="modal-effect btn btn-sm btn-info" data-bs-toggle="modal"
-                                            href="#edit{{ $doctor->id }}"><i class="fas fa-edit"></i></a>
+                                        <a class="btn btn-sm btn-info" 
+                                            href="{{ route('dashboard.doctors.edit', $doctor->id) }}"><i
+                                                class="fas fa-edit"></i></a>
 
                                         <a class="modal-effect btn btn-sm btn-danger" data-bs-toggle="modal"
                                             href="#delete{{ $doctor->id }}"><i class="fas fa-trash-alt"></i></a>
+
                                     </td>
+                                    @include('dashboard.doctors.delete')
                                 </tr>
                             @endforeach
                         </tbody>

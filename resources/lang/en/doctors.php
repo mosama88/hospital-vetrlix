@@ -30,4 +30,6 @@ return array (
   'submit' => 'submit',
   'update_password' => 'Update Password',
   'back'=> 'Back',
+  'edit'=> 'Edit',
+  'edit_doctor'=> 'Doctor Editing',
 );
