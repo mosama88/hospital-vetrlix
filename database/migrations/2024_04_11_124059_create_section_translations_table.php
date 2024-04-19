@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('section_translations', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->text('description');
             $table->string('locale')->index(); //Ar Or EN
             $table->unique(['section_id','locale']);
             $table->foreignId('section_id')->references('id')->on('sections')->onDelete('cascade');

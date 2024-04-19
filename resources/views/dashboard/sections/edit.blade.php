@@ -23,9 +23,19 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
+
+                    <div class="form-group">
+                        <label for="recipient-name"
+                            class="col-form-label">{{ trans('sections_trans.section_description') }}</label>
+                        <textarea id="textarea" name="description" class="form-control" rows="3"
+                            placeholder="This textarea has a limit of 225 chars.">{{ $section->description }}</textarea>
+                        @error('description')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
                     <div class="modal-footer">
-                        <button type="submit"
-                            class="btn btn-primary">{{ trans('sections_trans.edit') }}</button>
+                        <button type="submit" class="btn btn-primary">{{ trans('sections_trans.edit') }}</button>
                         <button type="button" class="btn btn-secondary"
                             data-bs-dismiss="modal">{{ trans('sections_trans.close') }}</button>
                     </div>

@@ -11,7 +11,7 @@ class Section extends Model
     use HasFactory;
 
     use Translatable;
-    public $translatedAttributes = ['name'];
+    public $translatedAttributes = ['name','description'];
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'description'];
 }

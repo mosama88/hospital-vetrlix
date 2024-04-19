@@ -1,8 +1,9 @@
 <?php
 
 namespace  App\Repository\Sections;
-use Illuminate\Http\Request;
 use App\Models\Section;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Interfaces\Sections\SectionRepositoryInterface;
 
 class SectionRepository implements SectionRepositoryInterface
@@ -14,12 +15,21 @@ class SectionRepository implements SectionRepositoryInterface
 
     public function store( $request)
     {
-        $data = $request->validate([
-            'name'=> 'required|string|min:2|max:100',
-        ]);
-        $name = $request->name;
-        Section::create($data);
-        return redirect()->route('dashboard.sections.index')->with('add', 'تم أضافة قسم '. $name);
+        try{
+            $section = $request->validate([
+                'name'=> 'required|string|min:2|max:100',
+                'description'=> 'required|string|min:10|max:2000',
+            ]);
+
+            Section::create($section);
+            return redirect()->route('dashboard.sections.index')->with('add', 'تم أضافة قسم ');
+        }
+        
+
+        catch (\Exception $e) {
+            DB::rollback();
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
     }
 
 
@@ -34,10 +44,10 @@ class SectionRepository implements SectionRepositoryInterface
    {
        $data = $request->validate([
         'name'=> 'required|string|min:2|max:100',
+        'description'=> 'required|string|min:10|max:2000',
        ]);
-       $name = $request->name;
        Section::findOrFail($request->id)->update($data);
-       return redirect()->route('dashboard.sections.index')->with('edit', 'تم تعديل قسم الى '. $name);
+       return redirect()->route('dashboard.sections.index')->with('edit', 'تم تعديل القسم  ');
     }
 
 
